@@ -14,7 +14,7 @@ def get_sum():
     data = request.get_json()
     result = data.get('a', 0) + data.get('b', 0)
     return jsonify({"result": result})
-x=1+1  # bad spacing, flake8 will catch this
+
 
 @app.route('/reverse-string', methods=['POST'])
 def reverse_string():
