@@ -1,4 +1,4 @@
-# task-to-deploy
+# trello-to-actions
 
 A GitOps-style automated development workflow connecting Trello, GitHub, and GitHub Actions.
 
