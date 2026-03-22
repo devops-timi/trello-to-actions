@@ -52,4 +52,5 @@ def test_reverse_single_char(client):
 # Additional 8th test: Testing sum with missing keys (defaults to 0)
 def test_sum_missing_keys(client):
     res = client.post('/sum', json={})
-    assert res.get_json()["result"] == 0
+    assert res.status_code == 400
+    assert res.get_json()["error"] == "Invalid input"
