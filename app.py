@@ -12,7 +12,13 @@ def health():
 @app.route('/sum', methods=['POST'])
 def get_sum():
     data = request.get_json()
-    result = data.get('a', 0) + data.get('b', 0)
+    a = data.get('a', 0)
+    b = data.get('b', 0)
+    if not isinstance(a, (int, float)):
+        return jsonify({"error": "Invalid input"}), 400
+    if not isinstance(b, (int, float)):
+        return jsonify({"error": "Invalid input"}), 400
+    result = a + b
     return jsonify({"result": result})
 
 
