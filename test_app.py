@@ -53,3 +53,24 @@ def test_reverse_single_char(client):
 def test_sum_missing_keys(client):
     res = client.post('/sum', json={})
     assert res.get_json()["result"] == 0
+
+
+# Additional Unit tests
+def test_reverse_long_string(client):
+    res = client.post('/reverse-string', json={"text": "abcdef"})
+    assert res.get_json()["result"] == "fedcba"
+
+
+def test_sum_large_numbers(client):
+    res = client.post('/sum', json={"a": 1000000, "b": 2000000})
+    assert res.get_json()["result"] == 3000000
+
+
+def test_health_status_key(client):
+    res = client.get('/health')
+    assert "status" in res.get_json()
+
+
+def test_sum_invalid_string(client):
+    res = client.post('/sum', json={"a": "abc", "b": 10})
+    assert res.status_code == 400
