@@ -23,6 +23,12 @@ def test_reverse(client):
     assert res.get_json()["result"] == "olleh"
 
 
+def test_sum_invalid_input(client):
+    res = client.post('/sum', json={"a": "hello", "b": 10})
+    assert res.status_code == 400
+    assert res.get_json()["error"] == "Invalid input"
+
+
 def test_sum_with_negative(client):
     res = client.post('/sum', json={"a": -5, "b": 10})
     assert res.get_json()["result"] == 5
