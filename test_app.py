@@ -74,3 +74,5 @@ def test_health_status_key(client):
 def test_sum_invalid_string(client):
     res = client.post('/sum', json={"a": "abc", "b": 10})
     assert res.status_code == 400
+
+    
