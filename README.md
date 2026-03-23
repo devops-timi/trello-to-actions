@@ -26,7 +26,7 @@ Optional detailed explanation
 
 ## Setup
 ```bash
-git clone https://github.com/YOUR_USERNAME/task-to-deploy.git
+git clone https://github.com/YOUR_USERNAME/trello-to-actions.git
 cd task-to-deploy
 pip install -r requirements.txt
 pytest test_app.py -v
